@@ -1,9 +1,9 @@
 <p align="center"><img src="https://raw.githubusercontent.com/t4d/StalkPhish/master/pics/stalkphish-logo.png"></p>
 
-# StalkPhish
-*StalkPhish - The Phishing kits stalker*
+# StalkPhish-OSS
+*StalkPhish-OSS - The Phishing kits stalker*
 
-**StalkPhish** is a tool created for searching into free OSINT databases for specific phishing kits URL. More, **StalkPhish** is designed to try finding phishing kits sources. Some scammers can't or don't remove their phishing kit sources when they deploy it. You can try to find these sources to extract some useful information as: e-mail addresses/Telegram channel where is send stolen data, some more information about scammer or phishing kit developer. From there you can extend your knowledge about the threat and organizations, and get much useful information for your investigations.
+**StalkPhish-OSS** is a tool created for searching into free OSINT databases for specific phishing kits URL. **StalkPhish-OSS** was made for phishing pages detection. More, **StalkPhish-OSS** is designed to try finding phishing kits sources. Some scammers can't or don't remove their phishing kit sources when they deploy it. You can try to find these sources to extract some useful information as: e-mail addresses/Telegram channel where is send stolen data, some more information about scammer or phishing kit developer. From there you can extend your knowledge about the threat and organizations, and get much useful information for your investigations.
 
 ## Features
 - find URL where a phishing kit is deployed (from OSINT databases)
@@ -34,6 +34,7 @@ You can find some blog posts relatives to phishing and phishing kits on [https:/
 ## Requirements
 * Python 3
 * BeautifulSoup4
+* Urllib3<2
 * cfscrape
 * requests
 * PySocks
@@ -45,7 +46,7 @@ You can found our online StalkPhish SaaS application on [https://www.Stalkphish.
 ## Join us
 You can join us on Keybase: [https://keybase.io/team/stalkphish](https://keybase.io/team/stalkphish) channel 'stalkphish'!
 
-## Upgrade StalkPhish from <0.9.6
+## Upgrade StalkPhish-OSS from <0.9.6
 Database schema changed (one more time :) for adding the ASnumber, a page hash, and a new column which contains e-mails extracted from Phishing kit's zip, you can modify your existing database like this:
 ~~~
 $ sqlite3 db/StalkPhish.sqlite3 (take care to adapt your tables names)
@@ -54,7 +55,7 @@ sqlite> ALTER TABLE StalkPhish ADD COLUMN ASN TEXT;
 sqlite> ALTER TABLE StalkPhishInvestig ADD COLUMN extracted_emails TEXT;
 ~~~
 
-## Upgrade StalkPhish v0.9 to v0.9.2 (or later)
+## Upgrade StalkPhish-OSS v0.9 to v0.9.2 (or later)
 To update StalPhish v0.9 database, please change your DB schema, to add a new column, like this:
 ~~~
 $ sqlite3 db/StalkPhish.sqlite3
@@ -62,9 +63,11 @@ sqlite> ALTER TABLE Investigation_Table_Name ADD COLUMN PageTitle TEXT;
 ~~~
 
 ## Install
-Install the requirements
+Install a virtual environment and requirements
 ~~~
-pip3 install -r requirements.txt
+python3 -m venv /opt/venv
+/opt/venv/bin/python3 -m pip install --upgrade pip
+/opt/venv/bin/pip install -r requirements.txt
 ~~~
 
 ## Help
@@ -76,9 +79,9 @@ $ ./StalkPhish.py -h
 | (___ | |_ __ _| | | _| |__) | |__  _ ___| |__  
  \___ \| __/ _` | | |/ /  ___/| '_ \| / __| '_ \ 
  ____) | || (_| | |   <| |    | | | | \__ \ | | |
-|_____/ \__\__,_|_|_|\__\|    |_| |_|_|___/_| |_|
+|_____/ \__\__,_|_|_|\__\|    |_| |_|_|___/_| |_| OSS
 
--= StalkPhish - The Phishing Kit stalker - v0.9.8-2 =-
+-= StalkPhish-OSS - The Phishing Kit stalker - v0.10 =-
 
 
     -h --help       Prints this help
@@ -99,9 +102,9 @@ $ ./StalkPhish.py -c conf/example.conf
 | (___ | |_ __ _| | | _| |__) | |__  _ ___| |__  
  \___ \| __/ _` | | |/ /  ___/| '_ \| / __| '_ \ 
  ____) | || (_| | |   <| |    | | | | \__ \ | | |
-|_____/ \__\__,_|_|_|\__\|    |_| |_|_|___/_| |_|
+|_____/ \__\__,_|_|_|\__\|    |_| |_|_|___/_| |_| OSS
 
--= StalkPhish - The Phishing Kit stalker - v0.9.8-2 =-
+-= StalkPhish-OSS - The Phishing Kit stalker - v0.10 =-
 
 2019-06-18 21:01:16,234 - StalkPhish.py - INFO - Configuration file to use: conf/example.conf
 2019-06-18 21:01:16,234 - StalkPhish.py - INFO - Database: ./test/db/StalkPhish.sqlite3
@@ -131,9 +134,9 @@ $ ./StalkPhish.py -c conf/example.conf -G -N
 | (___ | |_ __ _| | | _| |__) | |__  _ ___| |__  
  \___ \| __/ _` | | |/ /  ___/| '_ \| / __| '_ \ 
  ____) | || (_| | |   <| |    | | | | \__ \ | | |
-|_____/ \__\__,_|_|_|\__\|    |_| |_|_|___/_| |_|
+|_____/ \__\__,_|_|_|\__\|    |_| |_|_|___/_| |_| 0SS
 
--= StalkPhish - The Phishing Kit stalker - v0.9.8-2 =-
+-= StalkPhish-OSS - The Phishing Kit stalker - v0.10 =-
 
 2019-06-18 20:56:52,818 - StalkPhish.py - INFO - Configuration file to use: conf/example.conf
 2019-06-18 20:56:52,818 - StalkPhish.py - INFO - Database: ./test/db/StalkPhish.sqlite3
@@ -163,9 +166,9 @@ $ ./StalkPhish.py -c conf/example.conf -s office365
 | (___ | |_ __ _| | | _| |__) | |__  _ ___| |__  
  \___ \| __/ _` | | |/ /  ___/| '_ \| / __| '_ \ 
  ____) | || (_| | |   <| |    | | | | \__ \ | | |
-|_____/ \__\__,_|_|_|\__\|    |_| |_|_|___/_| |_|
+|_____/ \__\__,_|_|_|\__\|    |_| |_|_|___/_| |_| OSS
 
--= StalkPhish - The Phishing Kit stalker - v0.9.8-2 =-
+-= StalkPhish-OSS - The Phishing Kit stalker - v0.10 =-
 
 2019-09-10 17:58:03,141 - StalkPhish.py - INFO - Configuration file to use: conf/example.conf
 2019-09-10 17:58:03,142 - StalkPhish.py - INFO - Database: ./db/StalkPhish.sqlite3
@@ -230,10 +233,10 @@ The container is configured to keep interesting files into the host's /tmp direc
 
 You can now execute shell and launch StalkPhish:
 ~~~
-$ docker exec -ti stalkphish sh
-/ # cd /opt/StalkPhish/stalkphish/
+$ docker exec -ti stalkphish-oss sh
+/opt/StalkPhish # cd /opt/StalkPhish/stalkphish/
 /opt/StalkPhish/stalkphish # ./StalkPhish.py -c conf/example.conf
 ~~~
 
 ## Demo video
-[![StalkPhish v0.9.6 running video](https://img.youtube.com/vi/2YWLZSgrdp0/0.jpg)](https://open.tube/videos/embed/79b9b1eb-4c75-42aa-a519-ee376d0b1341)
+[![StalkPhish v0.9.6 running video](https://img.youtube.com/vi/2YWLZSgrdp0/0.jpg)](https://www.youtube.com/watch?v=2YWLZSgrdp0)

@@ -1,8 +1,8 @@
-#!/usr/bin/env python3
+#!/opt/venv/bin/python3
 # -*- coding: utf-8 -*-
 
-#   StalkPhish - The Phishing kits stalker
-#   Copyright (C) 2018-2020 Thomas "tAd" Damonneville
+#   StalkPhish-OSS - The Phishing kits stalker
+#   Copyright (C) 2018-2024 Thomas 'tAd' Damonneville
 #
 #   This program is free software: you can redistribute it and/or modify
 #   it under the terms of the GNU Affero General Public License as
@@ -29,7 +29,7 @@ from tools.sqlite import SqliteCmd
 from tools.addurl import AddUniqueURL
 from tools.logging import Logger
 from tools.confparser import ConfParser
-VERSION = "0.9.8-3"
+VERSION = "0.10"
 
 
 # Graceful banner  :)
@@ -40,10 +40,11 @@ def banner():
 | (___ | |_ __ _| | | _| |__) | |__  _ ___| |__  
  \___ \| __/ _` | | |/ /  ___/| '_ \| / __| '_ \ 
  ____) | || (_| | |   <| |    | | | | \__ \ | | |
-|_____/ \__\__,_|_|_|\__\|    |_| |_|_|___/_| |_|
+|_____/ \__\__,_|_|_|\__\|    |_| |_|_|___/_| |_| OSS
 '''
     print(banner)
-    print("-= StalkPhish - The Phishing Kit stalker - v" + VERSION + " =-\n")
+    print("-= StalkPhish-OSS - The Phishing Kit stalker - v" + VERSION + " =-")
+    print("-= A more fully featured version of this tool is available at https://www.stalkphish.io =-\n")
 
 
 # Usage
