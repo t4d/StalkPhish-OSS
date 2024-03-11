@@ -1,4 +1,4 @@
-<p align="center"><img src="https://raw.githubusercontent.com/t4d/StalkPhish/master/pics/stalkphish-logo.png"></p>
+<p align="center"><img src="https://raw.githubusercontent.com/t4d/StalkPhish-OSS/master/pics/stalkphish-logo.png"></p>
 
 # StalkPhish-OSS
 *StalkPhish-OSS - The Phishing kits stalker*
