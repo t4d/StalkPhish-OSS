@@ -1,5 +1,6 @@
 BeautifulSoup4
 cfscrape
+urllib3<2
 requests
 pysocks
 ipwhois
