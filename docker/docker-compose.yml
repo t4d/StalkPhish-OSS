@@ -1,11 +1,13 @@
 version: "2"
 
 services:
- stalkphish:
-  image: stalkphish
-  container_name: stalkphish
-  hostname: stalkphish
-  build: ./
+ stalkphish_oss:
+  image: stalkphish-oss
+  container_name: stalkphish-oss
+  hostname: stalkphish-oss
+  build:
+      context: ../
+      dockerfile: docker/Dockerfile
   volumes:
    - /tmp/log:/opt/StalkPhish/stalkphish/log:rw
    - /tmp/dl:/opt/StalkPhish/stalkphish/dl:rw
