@@ -1,0 +1,13 @@
+version: "2"
+
+services:
+ stalkphish:
+  image: stalkphish
+  container_name: stalkphish
+  hostname: stalkphish
+  build: ./
+  volumes:
+   - /tmp/log:/opt/StalkPhish/stalkphish/log:rw
+   - /tmp/dl:/opt/StalkPhish/stalkphish/dl:rw
+   - /tmp/db:/opt/StalkPhish/stalkphish/db:rw
+  command: /usr/bin/supervisord -c /etc/supervisor/conf.d/supervisord.conf

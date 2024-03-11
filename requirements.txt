@@ -1,0 +1,6 @@
+BeautifulSoup4
+cfscrape
+requests
+pysocks
+ipwhois
+lxml
