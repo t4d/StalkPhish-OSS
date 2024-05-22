@@ -72,7 +72,7 @@ python3 -m venv /opt/venv
 
 ## Help
 ~~~
-$ ./StalkPhish.py -h
+$ python3 StalkPhish.py -h
 
   _____ _        _ _    _____  _     _     _
  / ____| |      | | |  |  __ \| |   (_)   | |    
@@ -95,7 +95,7 @@ $ ./StalkPhish.py -h
 
 ## Basic usage
 ~~~
-$ ./StalkPhish.py -c conf/example.conf 
+$ python3 StalkPhish.py -c conf/example.conf 
 
   _____ _        _ _    _____  _     _     _
  / ____| |      | | |  |  __ \| |   (_)   | |    
@@ -127,7 +127,7 @@ t/38327c8b-a1b9-4919-8037-ddf88238c16c Tue Jun 18 21:03:13 2019 timeout
 
 ## Advanced usage (try to 'G'et phishing kit zipfile, 'N'o OSINT search)
 ~~~
-$ ./StalkPhish.py -c conf/example.conf -G -N
+$ python3 StalkPhish.py -c conf/example.conf -G -N
 
   _____ _        _ _    _____  _     _     _
  / ____| |      | | |  |  __ \| |   (_)   | |    
@@ -159,7 +159,7 @@ $ ./StalkPhish.py -c conf/example.conf -G -N
 
 ## Search usage (Search without touching your configuration file search keyword)
 ~~~
-$ ./StalkPhish.py -c conf/example.conf -s office365
+$ python3 StalkPhish.py -c conf/example.conf -s office365
 
   _____ _        _ _    _____  _     _     _
  / ____| |      | | |  |  __ \| |   (_)   | |    
@@ -235,7 +235,7 @@ You can now execute shell and launch StalkPhish:
 ~~~
 $ docker exec -ti stalkphish-oss sh
 /opt/StalkPhish # cd /opt/StalkPhish/stalkphish/
-/opt/StalkPhish/stalkphish # ./StalkPhish.py -c conf/example.conf
+/opt/StalkPhish/stalkphish # python3 StalkPhish.py -c conf/example.conf
 ~~~
 
 ## Demo video
