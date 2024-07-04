@@ -25,7 +25,7 @@ def SiteURLSQL(SearchString, line, LOG, SQL, TABLEname, PROXY, UAFILE, UAG):
     dn = dirname(siteURL)
 
     # Test if entry still exist in DB
-    if SQL.SQLiteVerifyEntry(TABLEname, dn) is 0:
+    if SQL.SQLiteVerifyEntry(TABLEname, dn) == 0:
         # Proceed to informations retrieve
         now = str(TimestampNow().Timestamp())
         source_url = "https://urlquery.net/" + line[1]

@@ -24,7 +24,7 @@ def SiteURLSQL(item, LOG, SQL, TABLEname, PROXY, UAFILE, UAG):
     dn = dirname(siteURL)
 
     # Test if entry still exist in DB
-    if SQL.SQLiteVerifyEntry(TABLEname, dn) is 0:
+    if SQL.SQLiteVerifyEntry(TABLEname, dn) == 0:
         now = str(TimestampNow().Timestamp())
         siteDomain = urlparse(item['page']['url']).netloc
         source_url = item['result'].replace("/api/v1", "")

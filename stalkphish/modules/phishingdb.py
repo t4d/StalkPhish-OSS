@@ -21,7 +21,7 @@ def SiteURLSQL(phishingdb_file, entry, LOG, SQL, TABLEname, PROXY, UAFILE, UAG):
     dn = dirname(siteURL)
 
     # Test if entry still exist in DB
-    if SQL.SQLiteVerifyEntry(TABLEname, dn) is 0:
+    if SQL.SQLiteVerifyEntry(TABLEname, dn) == 0:
         now = str(TimestampNow().Timestamp())
         siteDomain = urlparse(entry).netloc
         source_url = phishingdb_file

@@ -24,7 +24,7 @@ def SiteURLSQL(phishtank_file, entry, LOG, SQL, TABLEname, PROXY, UAFILE, UAG):
     dn = dirname(siteURL)
 
     # Test if entry still exist in DB
-    if SQL.SQLiteVerifyEntry(TABLEname, dn) is 0:
+    if SQL.SQLiteVerifyEntry(TABLEname, dn) == 0:
 
         IPaddress = entry['details'][0]['ip_address']
         source_url = entry['phish_detail_url']
