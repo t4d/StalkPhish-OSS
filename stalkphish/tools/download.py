@@ -126,7 +126,7 @@ def TryPKDownload(siteURL, siteDomain, IPaddress, TABLEname, InvTABLEname, DLDir
         # if (str(r.status_code) != "404"):
         LOG.info("[" + str(r.status_code) + "] " + r.url)
         SQL.SQLiteInsertStillTryDownload(TABLEname, siteURL)
-        if SQL.SQLiteInvestigVerifyEntry(InvTABLEname, siteDomain, IPaddress) is 0:
+        if SQL.SQLiteInvestigVerifyEntry(InvTABLEname, siteDomain, IPaddress) == 0:
             SQL.SQLiteInvestigInsert(InvTABLEname, siteURL, siteDomain, IPaddress, now, str(r.status_code))
         else:
             pass
