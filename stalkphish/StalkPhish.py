@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 #   StalkPhish-OSS - The Phishing kits stalker
-#   Copyright (C) 2018-2024 Thomas 'tAd' Damonneville
+#   Copyright (C) 2018-2025 Thomas 'tAd' Damonneville
 #
 #   This program is free software: you can redistribute it and/or modify
 #   it under the terms of the GNU Affero General Public License as
@@ -29,7 +29,7 @@ from tools.sqlite import SqliteCmd
 from tools.addurl import AddUniqueURL
 from tools.logging import Logger
 from tools.confparser import ConfParser
-VERSION = "0.10"
+VERSION = "0.11"
 
 
 # Graceful banner  :)
