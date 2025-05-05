@@ -30,6 +30,9 @@ RUN mkdir /opt/StalkPhish/stalkphish/log
 RUN mkdir /opt/StalkPhish/stalkphish/dl
 RUN mkdir /opt/StalkPhish/stalkphish/db
 
+# add virtual env to path
+RUN export PATH="/opt/venv/bin:$PATH"
+
 # Add custom supervisor config
 COPY docker/supervisord.conf /etc/supervisor/conf.d/
 CMD ["/usr/bin/supervisord"; "-c"; "/etc/supervisor/conf.d/supervisord.conf"]
