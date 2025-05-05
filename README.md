@@ -62,7 +62,7 @@ $ sqlite3 db/StalkPhish.sqlite3
 sqlite> ALTER TABLE Investigation_Table_Name ADD COLUMN PageTitle TEXT;
 ~~~
 
-## Install
+## Python Virtual Environment
 Install a virtual environment and requirements
 ~~~
 python3 -m venv /opt/venv
@@ -72,7 +72,7 @@ python3 -m venv /opt/venv
 
 ## Help
 ~~~
-$ python3 StalkPhish.py -h
+$ /opt/venv/bin/python StalkPhish.py -h
 
   _____ _        _ _    _____  _     _     _
  / ____| |      | | |  |  __ \| |   (_)   | |    
@@ -81,7 +81,7 @@ $ python3 StalkPhish.py -h
  ____) | || (_| | |   <| |    | | | | \__ \ | | |
 |_____/ \__\__,_|_|_|\__\|    |_| |_|_|___/_| |_| OSS
 
--= StalkPhish-OSS - The Phishing Kit stalker - v0.10 =-
+-= StalkPhish-OSS - The Phishing Kit stalker - v0.11 =-
 
 
     -h --help       Prints this help
@@ -95,7 +95,7 @@ $ python3 StalkPhish.py -h
 
 ## Basic usage
 ~~~
-$ python3 StalkPhish.py -c conf/example.conf 
+$ /opt/venv/bin/python StalkPhish.py -c conf/example.conf 
 
   _____ _        _ _    _____  _     _     _
  / ____| |      | | |  |  __ \| |   (_)   | |    
@@ -104,7 +104,7 @@ $ python3 StalkPhish.py -c conf/example.conf
  ____) | || (_| | |   <| |    | | | | \__ \ | | |
 |_____/ \__\__,_|_|_|\__\|    |_| |_|_|___/_| |_| OSS
 
--= StalkPhish-OSS - The Phishing Kit stalker - v0.10 =-
+-= StalkPhish-OSS - The Phishing Kit stalker - v0.11 =-
 
 2019-06-18 21:01:16,234 - StalkPhish.py - INFO - Configuration file to use: conf/example.conf
 2019-06-18 21:01:16,234 - StalkPhish.py - INFO - Database: ./test/db/StalkPhish.sqlite3
@@ -127,7 +127,7 @@ t/38327c8b-a1b9-4919-8037-ddf88238c16c Tue Jun 18 21:03:13 2019 timeout
 
 ## Advanced usage (try to 'G'et phishing kit zipfile, 'N'o OSINT search)
 ~~~
-$ python3 StalkPhish.py -c conf/example.conf -G -N
+$ /opt/venv/bin/python StalkPhish.py -c conf/example.conf -G -N
 
   _____ _        _ _    _____  _     _     _
  / ____| |      | | |  |  __ \| |   (_)   | |    
@@ -136,7 +136,7 @@ $ python3 StalkPhish.py -c conf/example.conf -G -N
  ____) | || (_| | |   <| |    | | | | \__ \ | | |
 |_____/ \__\__,_|_|_|\__\|    |_| |_|_|___/_| |_| 0SS
 
--= StalkPhish-OSS - The Phishing Kit stalker - v0.10 =-
+-= StalkPhish-OSS - The Phishing Kit stalker - v0.11 =-
 
 2019-06-18 20:56:52,818 - StalkPhish.py - INFO - Configuration file to use: conf/example.conf
 2019-06-18 20:56:52,818 - StalkPhish.py - INFO - Database: ./test/db/StalkPhish.sqlite3
@@ -159,7 +159,7 @@ $ python3 StalkPhish.py -c conf/example.conf -G -N
 
 ## Search usage (Search without touching your configuration file search keyword)
 ~~~
-$ python3 StalkPhish.py -c conf/example.conf -s office365
+$ /opt/venv/bin/python StalkPhish.py -c conf/example.conf -s office365
 
   _____ _        _ _    _____  _     _     _
  / ____| |      | | |  |  __ \| |   (_)   | |    
@@ -168,7 +168,7 @@ $ python3 StalkPhish.py -c conf/example.conf -s office365
  ____) | || (_| | |   <| |    | | | | \__ \ | | |
 |_____/ \__\__,_|_|_|\__\|    |_| |_|_|___/_| |_| OSS
 
--= StalkPhish-OSS - The Phishing Kit stalker - v0.10 =-
+-= StalkPhish-OSS - The Phishing Kit stalker - v0.11 =-
 
 2019-09-10 17:58:03,141 - StalkPhish.py - INFO - Configuration file to use: conf/example.conf
 2019-09-10 17:58:03,142 - StalkPhish.py - INFO - Database: ./db/StalkPhish.sqlite3
@@ -240,3 +240,9 @@ $ docker exec -ti stalkphish-oss sh
 
 ## Demo video
 [![StalkPhish v0.9.6 running video](https://img.youtube.com/vi/2YWLZSgrdp0/0.jpg)](https://www.youtube.com/watch?v=2YWLZSgrdp0)
+
+
+## Support
+If you like this project, you can know buy me a coffee!
+
+<a href="https://www.buymeacoffee.com/tad0"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=tad0&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a>
