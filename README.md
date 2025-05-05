@@ -243,6 +243,6 @@ $ docker exec -ti stalkphish-oss sh
 
 
 ## Support
-If you like this project, you can know buy me a coffee!
+If you like this project, you can buy me a coffee!
 
 <a href="https://www.buymeacoffee.com/tad0"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=tad0&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a>
