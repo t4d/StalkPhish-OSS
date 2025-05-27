@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-# This file is part of StalkPhish - see https://github.com/t4d/StalkPhish
+# This file is part of StalkPhish - see https://github.com/t4d/StalkPhish-oss
 
 import requests
 from bs4 import BeautifulSoup
@@ -17,6 +17,7 @@ from tools.utils import TimestampNow
 from tools.utils import SHA256
 from tools.utils import UAgent
 from tools.utils import ZipSearch
+from tools.utils import TelegramSearch
 from requests.packages.urllib3.exceptions import InsecureRequestWarning
 requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 
@@ -77,6 +78,16 @@ def PKDownloadOpenDir(siteURL, siteDomain, IPaddress, TABLEname, InvTABLEname, D
                             SQL.SQLiteInvestigInsertEmail(InvTABLEname, extracted_emails, ZipFileName)
                         except Exception as e:
                             LOG.info("Extracted emails exception: {}".format(e))
+
+                        # Extract Telegram info from downloaded file
+                        try:
+                            ZT = TelegramSearch()
+                            extracted_TG = str(ZT.PKzipSearch(InvTABLEname, SQL, LOG, DLDir, savefile)).replace("['", "").replace("']", "")
+                            if extracted_TG:
+                                LOG.info(f"[Telegram] found: {extracted_TG}")
+                                SQL.SQLiteInvestigInsertTG(InvTABLEname, extracted_TG, ZipFileName, now)
+                        except Exception as e:
+                            LOG.info(f"Extracted Telegram exception: {e}")
 
                         SQL.SQLiteInvestigUpdatePK(InvTABLEname, siteURL, ZipFileName, ZipFileHash, now, lastHTTPcode)
                     else:
@@ -223,7 +234,17 @@ def TryPKDownload(siteURL, siteDomain, IPaddress, TABLEname, InvTABLEname, DLDir
                                                     SQL.SQLiteInvestigInsertEmail(InvTABLEname, extracted_emails, ZipFileName)
                                                 except Exception as e:
                                                     LOG.info("Extracted emails exception: {}".format(e))
-                                                return
+
+                                                # Extract Telegram info from downloaded file
+                                                try:
+                                                    ZT = TelegramSearch()
+                                                    extracted_TG = str(ZT.PKzipSearch(InvTABLEname, SQL, LOG, DLDir, savefile)).replace("['", "").replace("']", "")
+                                                    if extracted_TG:
+                                                        LOG.info(f"[Telegram] found: {extracted_TG}")
+                                                        SQL.SQLiteInvestigInsertTG(InvTABLEname, extracted_TG, ZipFileName, now)
+                                                except Exception as e:
+                                                    LOG.info(f"Extracted Telegram exception: {e}")
+
                                             else:
                                                 pass
                                     except requests.exceptions.ContentDecodingError:

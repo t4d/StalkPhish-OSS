@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-# This file is part of StalkPhish - see https://github.com/t4d/StalkPhish
+# This file is part of StalkPhish - see https://github.com/t4d/StalkPhish-oss
 
 import sqlite3
 import sys
@@ -106,6 +106,10 @@ class SqliteCmd(object):
 
     def SQLiteInvestigInsertEmail(self, InvTABLEname, extracted_emails, ZipFileName):
         self.cur.execute('UPDATE ' + InvTABLEname + ' SET  extracted_emails=? where ZipFileName=?;', (extracted_emails, ZipFileName))
+        self.conn.commit()
+
+    def SQLiteInvestigInsertTG(self, InvTABLEname, extracted_TG, ZipFileName):
+        self.cur.execute('UPDATE ' + InvTABLEname + ' SET  extracted_telegram=? where ZipFileName=?;', (extracted_TG, ZipFileName))
         self.conn.commit()
 
     def SQLiteInvestigVerifyEntry(self, InvTABLEname, siteDomain, IPaddress):
