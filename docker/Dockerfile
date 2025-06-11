@@ -1,4 +1,4 @@
-FROM alpine:latest
+FROM alpine:latest	
 
 LABEL maintainer "contact---stalkphish.com"
 
@@ -31,7 +31,9 @@ RUN mkdir /opt/StalkPhish/stalkphish/dl
 RUN mkdir /opt/StalkPhish/stalkphish/db
 
 # add virtual env to path
-RUN export PATH="/opt/venv/bin:$PATH"
+ENV PATH="/opt/venv/bin:$PATH"
+ENV VIRTUAL_ENV="/opt/venv"
+ENV PIP_PREFIX="/opt/venv"
 
 # Add custom supervisor config
 COPY docker/supervisord.conf /etc/supervisor/conf.d/
