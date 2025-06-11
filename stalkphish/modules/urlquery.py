@@ -28,7 +28,7 @@ def SiteURLSQL(SearchString, line, LOG, SQL, TABLEname, PROXY, UAFILE, UAG):
     if SQL.SQLiteVerifyEntry(TABLEname, dn) == 0:
         # Proceed to informations retrieve
         now = str(TimestampNow().Timestamp())
-        source_url = "https://urlquery.net/" + line[1]
+        source_url = "https://urlquery.net" + line[1]
         try:
             IPaddress = socket.gethostbyname(siteDomain)
             if IPaddress:
@@ -85,11 +85,19 @@ def SiteURLSQL(SearchString, line, LOG, SQL, TABLEname, PROXY, UAFILE, UAG):
 def UrlqueryOSINT(ConfURLQUERY_url, PROXY, SearchString, LOG):
     global HTMLText
     try:
-        proxies = {'http': PROXY, 'https': PROXY}
-        payload = {'q': SearchString}
-        r = requests.get(ConfURLQUERY_url, params=payload, allow_redirects=True, timeout=(10, 20))
-        HTMLText = r.text
-        LOG.info("Searching for \'" + SearchString + "\'...")
+        try:
+            proxies = {'http': PROXY, 'https': PROXY}
+            #payload = {'q': SearchString}
+            payload = {
+                'q': SearchString,
+                'limit': '100',
+                'offset': '0',
+                'type': 'reports',
+                'view': 'list'
+            }
+            r = requests.get(ConfURLQUERY_url, params=payload, allow_redirects=True, timeout=(10, 20))
+            HTMLText = r.text
+            LOG.info("Searching for \'" + SearchString + "\'...")
     except Exception as e:
         LOG.error("Error while GETting HTML page: {}".format(e))
 
@@ -99,9 +107,13 @@ def UrlqueryExtractor(SearchString, LOG, SQL, TABLEname, PROXY, UAFILE):
     UAG = UAgent()
     # Search in Urlquery HTML file
     try:
-        m = re.findall(r"<td><a title='(.*?)' href='(.*?)'>", HTMLText)
-        for line in m:
-            SiteURLSQL(SearchString, line, LOG, SQL, TABLEname, PROXY, UAFILE, UAG)
+        m = re.findall(r'<a[^>]*title="([^"]*\.[a-zA-Z]{2,}[^"]*)"[^>]*href="([^"]*)"[^>]*>', HTMLText)
+        seen = set()
+        for url, href in m:
+            if len(url) > 5 and url not in seen:
+                seen.add(url)
+                line = (url, href)
+                SiteURLSQL(SearchString, line, LOG, SQL, TABLEname, PROXY, UAFILE, UAG)
     except TypeError:
         pass
 
