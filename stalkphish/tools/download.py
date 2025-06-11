@@ -39,7 +39,7 @@ def PKDownloadOpenDir(siteURL, siteDomain, IPaddress, TABLEname, InvTABLEname, D
     except:
         PageTitle = None
     if PageTitle is not None:
-        PageTitle = re.sub('\s+', ' ', PageTitle)
+        PageTitle = re.sub(r'\s+', ' ', PageTitle)
         SQL.SQLiteInvestigUpdateTitle(InvTABLEname, siteURL, PageTitle)
     else:
         pass
@@ -173,7 +173,7 @@ def TryPKDownload(siteURL, siteDomain, IPaddress, TABLEname, InvTABLEname, DLDir
                 except:
                     PageTitle = None
                 if PageTitle is not None:
-                    PageTitle = re.sub('\s+', ' ', PageTitle)
+                    PageTitle = re.sub(r'\s+', ' ', PageTitle)
                     LOG.info(PageTitle)
                     SQL.SQLiteInvestigUpdateTitle(InvTABLEname, siteURL, PageTitle)
                 else:
@@ -255,13 +255,13 @@ def TryPKDownload(siteURL, siteDomain, IPaddress, TABLEname, InvTABLEname, DLDir
                             # rootpath of siteURL
                             else:
                                 rr = requests.get(zip, headers=user_agent, proxies=proxies, allow_redirects=True, timeout=(5, 12), verify=False)
-                                thtml = BeautifulSoup(rr.text, 'html.parser')
+                                thtml = BeautifulSoup(rr.text, 'xml')
                                 try:
                                     PageTitle = thtml.title.text.strip()
                                 except:
                                     PageTitle = None
                                 if PageTitle is not None:
-                                    PageTitle = re.sub('\s+', ' ', PageTitle)
+                                    PageTitle = re.sub(r'\s+', ' ', PageTitle)
                                 else:
                                     pass
 
