@@ -85,19 +85,18 @@ def SiteURLSQL(SearchString, line, LOG, SQL, TABLEname, PROXY, UAFILE, UAG):
 def UrlqueryOSINT(ConfURLQUERY_url, PROXY, SearchString, LOG):
     global HTMLText
     try:
-        try:
-            proxies = {'http': PROXY, 'https': PROXY}
-            #payload = {'q': SearchString}
-            payload = {
-                'q': SearchString,
-                'limit': '100',
-                'offset': '0',
-                'type': 'reports',
-                'view': 'list'
-            }
-            r = requests.get(ConfURLQUERY_url, params=payload, allow_redirects=True, timeout=(10, 20))
-            HTMLText = r.text
-            LOG.info("Searching for \'" + SearchString + "\'...")
+        proxies = {'http': PROXY, 'https': PROXY}
+        #payload = {'q': SearchString}
+        payload = {
+            'q': SearchString,
+            'limit': '100',
+            'offset': '0',
+            'type': 'reports',
+            'view': 'list'
+        }
+        r = requests.get(ConfURLQUERY_url, params=payload, allow_redirects=True, timeout=(10, 20))
+        HTMLText = r.text
+        LOG.info("Searching for \'" + SearchString + "\'...")
     except Exception as e:
         LOG.error("Error while GETting HTML page: {}".format(e))
 
