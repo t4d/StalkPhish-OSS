@@ -29,7 +29,7 @@ from tools.sqlite import SqliteCmd
 from tools.addurl import AddUniqueURL
 from tools.logging import Logger
 from tools.confparser import ConfParser
-VERSION = "0.12"
+VERSION = "0.12.1"
 
 
 # Graceful banner  :)
