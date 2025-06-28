@@ -46,6 +46,13 @@ You can found our online StalkPhish SaaS application on [https://www.Stalkphish.
 ## Join us
 You can join us on Keybase: [https://keybase.io/team/stalkphish](https://keybase.io/team/stalkphish) channel 'stalkphish'!
 
+## Upgrade StalkPhish-OSS from <0.12.1
+Database schema changed for adding a new column which contains Telegram data extracted from Phishing kit's zip, you can modify your existing database like this:
+~~~
+$ sqlite3 db/StalkPhish.sqlite3 (take care to adapt your tables names)
+sqlite> ALTER TABLE StalkPhishInvestig ADD COLUMN extracted_telegram TEXT;
+~~~
+
 ## Upgrade StalkPhish-OSS from <0.9.6
 Database schema changed (one more time :) for adding the ASnumber, a page hash, and a new column which contains e-mails extracted from Phishing kit's zip, you can modify your existing database like this:
 ~~~

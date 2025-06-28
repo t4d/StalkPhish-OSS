@@ -64,7 +64,7 @@ class SqliteCmd(object):
     # Investigation DB operations
     def SQLiteInvestigCreateTable(self, InvTABLEname):
         '''Creating Investigation Table if not exist'''
-        self.cur.execute('CREATE TABLE IF NOT EXISTS ' + InvTABLEname + ' (siteURL TEXT NOT NULL PRIMARY KEY, siteDomain TEXT, IPaddress TEXT, ZipFileName TEXT, ZipFileHash TEXT, FirstSeentime TEXT, FirstSeenCode TEXT, LastSeentime TEXT, LastSeenCode TEXT, PageTitle TEXT, extracted_emails TEXT)')
+        self.cur.execute('CREATE TABLE IF NOT EXISTS ' + InvTABLEname + ' (siteURL TEXT NOT NULL PRIMARY KEY, siteDomain TEXT, IPaddress TEXT, ZipFileName TEXT, ZipFileHash TEXT, FirstSeentime TEXT, FirstSeenCode TEXT, LastSeentime TEXT, LastSeenCode TEXT, PageTitle TEXT, extracted_emails TEXT, extracted_telegram TEXT)')
 
     def SQLiteInvestigInsert(self, InvTABLEname, siteURL, siteDomain, IPaddress, now, lastHTTPcode):
         '''Insert new URL info into Investigation table'''

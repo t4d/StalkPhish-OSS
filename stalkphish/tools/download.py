@@ -85,7 +85,7 @@ def PKDownloadOpenDir(siteURL, siteDomain, IPaddress, TABLEname, InvTABLEname, D
                             extracted_TG = str(ZT.PKzipSearch(InvTABLEname, SQL, LOG, DLDir, savefile)).replace("['", "").replace("']", "")
                             if extracted_TG:
                                 LOG.info(f"[Telegram] found: {extracted_TG}")
-                                SQL.SQLiteInvestigInsertTG(InvTABLEname, extracted_TG, ZipFileName, now)
+                                SQL.SQLiteInvestigInsertTG(InvTABLEname, extracted_TG, ZipFileName)
                         except Exception as e:
                             LOG.info(f"Extracted Telegram exception: {e}")
 
@@ -241,7 +241,7 @@ def TryPKDownload(siteURL, siteDomain, IPaddress, TABLEname, InvTABLEname, DLDir
                                                     extracted_TG = str(ZT.PKzipSearch(InvTABLEname, SQL, LOG, DLDir, savefile)).replace("['", "").replace("']", "")
                                                     if extracted_TG:
                                                         LOG.info(f"[Telegram] found: {extracted_TG}")
-                                                        SQL.SQLiteInvestigInsertTG(InvTABLEname, extracted_TG, ZipFileName, now)
+                                                        SQL.SQLiteInvestigInsertTG(InvTABLEname, extracted_TG, ZipFileName)
                                                 except Exception as e:
                                                     LOG.info(f"Extracted Telegram exception: {e}")
 
